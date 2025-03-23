@@ -9,7 +9,7 @@ def load_tasks():
     if not os.path.exists(DATA_FILE):
         return []
     with open (DATA_FILE , "r") as f:
-        return json.load(f) # change it to python list
+        return json.load(f) # change 2it to python list
 
 def save_tasks(tasks):
     with open (DATA_FILE ,"w") as f:
@@ -43,13 +43,24 @@ def delete_tasks(index):
     else:
         print ("invalid number")
 
+def edit_tasks(index , new_title):
+    tasks = load_tasks()
+
+    if 0 < index <=len(tasks):
+        tasks[index]['title'] = new_title
+        save_tasks(tasks)
+        print ('edited successfully')
+    else:
+        print("invalid number")
+
 def main():
     while True:
         print ("""
         1. show tasks
         2. add task
         3. delete task
-        4. exit """)
+        4.edit task
+        5. exit """)
         choice = input ("please enter your choice:")
         if choice =='1':
             show_tasks()
@@ -64,6 +75,14 @@ def main():
             except ValueError:
                 print("invalid number")
         elif choice == '4':
+            try:
+                index = int(input ("please enter the number of the task which you want to edit:"))
+                new_title = input ('please enter edited title:')
+                edit_tasks(index , new_title)
+            except ValueError:
+                print ("invalid number")
+
+        elif choice == '5':
             print("finish")
             break
         else:
