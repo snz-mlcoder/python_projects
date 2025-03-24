@@ -36,8 +36,8 @@ def add_tasks(title):
    
 def delete_tasks(index):
     tasks = load_tasks()
-    if 0 < index <= len(tasks):
-        removed = tasks.pop(index)
+    if 1 <= index <= len(tasks):
+        removed = tasks.pop(index - 1)
         save_tasks(tasks)
         print (f" task {removed['title']} is deleted")
     else:
@@ -46,8 +46,8 @@ def delete_tasks(index):
 def edit_tasks(index , new_title):
     tasks = load_tasks()
 
-    if 0 < index <=len(tasks):
-        tasks[index]['title'] = new_title
+    if  1 <= index <=len(tasks) :
+        tasks[index - 1]['title'] = new_title
         save_tasks(tasks)
         print ('edited successfully')
     else:
@@ -75,6 +75,7 @@ def main():
             except ValueError:
                 print("invalid number")
         elif choice == '4':
+            show_tasks()
             try:
                 index = int(input ("please enter the number of the task which you want to edit:"))
                 new_title = input ('please enter edited title:')
