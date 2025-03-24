@@ -1,4 +1,7 @@
+from task_manager import TaskManager
+
 def main():
+    manager = TaskManager()
     while True:
         print("""
                1. show tasks
@@ -8,23 +11,23 @@ def main():
                5. exit """)
         choice = input("please enter your choice:")
         if choice == '1':
-            show_tasks()
+            manager.show_tasks()
         elif choice == '2':
             title = input("title:")
-            add_tasks(title)
+            manager.add_tasks(title)
         elif choice == '3':
-            show_tasks()
+            manager.show_tasks()
             try:
                 index = int(input("please enter the number of the task which you want to delete:"))
-                delete_tasks(index)
+                manager.delete_tasks(index)
             except ValueError:
                 print("invalid number")
         elif choice == '4':
-            show_tasks()
+            manager.show_tasks()
             try:
                 index = int(input("please enter the number of the task which you want to edit:"))
                 new_title = input('please enter edited title:')
-                edit_tasks(index, new_title)
+                manager.edit_tasks(index, new_title)
             except ValueError:
                 print("invalid number")
 
