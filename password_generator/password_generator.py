@@ -13,10 +13,32 @@ def generate_password(length=12, use_upper=True, use_digits=True, use_symbols=Tr
         characters += list("!@#$%^&*()_+-=[]{}|;:,.<>?")
 
     if not characters:
-        return "Please select at least one character type."
+        raise ValueError("Please select at least one character type.")
+
 
     password = ''.join(random.choice(characters) for _ in range(length))
     return password
+
+def password_strength(password):
+    score = 0
+    if any(c.islower() for c in password):
+        score += 1
+    if any(c.isupper() for c in password):
+        score += 1
+    if any(c.isdigit() for c in password):
+        score += 1
+    if any(c in "!@#$%^&*()_+-=[]{}|;:,.<>?" for c in password):
+        score += 1
+
+    length = len(password)
+
+    if length >=12 and score ==4 :
+        return "Strong"
+    if length >=8 and score >=3 :
+        return "Moderate"
+    else:
+        return "weak"
+
 
 
 # example of run
@@ -33,8 +55,15 @@ if __name__ == "__main__":
         use_digits = input("Include digits? (y/n): ").lower() == 'y'
         use_symbols = input("Include symbols? (y/n): ").lower() == 'y'
 
-        password = generate_password(length, use_upper, use_digits, use_symbols)
+        try:
+
+            password = generate_password(length, use_upper, use_digits, use_symbols)
+        except ValueError as e:
+            print(e)
+            continue
+
         print("\n✅ Your generated password:", password)
+        print("📊 Password strength:", password_strength(password))
 
         again = input('/nGenerate another password ? (y/n): ').lower()
         if again != 'y' :
