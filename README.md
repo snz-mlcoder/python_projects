@@ -3,13 +3,16 @@
 A collection of small Python projrcts to demonstrate basic programming skills, explore diffrent libraries and build hand-on exprience.
 
 ## projects
-1 . [**To_Do CLI App**](./todo-cli-app)
 
-    A simple command-line to-do list manager,users can add, viwe, and delete tasks, which are saved in a JSON file.
+1. **To-Do CLI App**  
+   A command-line to-do list application implemented in two versions:
+   - [Procedural version](./todo-cli-app): Simple functions for adding, viewing, and deleting tasks.
+   - [Object-oriented version](./todo_oop): Structured with Python classes for better code organization.  
+   
+   Both versions store tasks in a JSON file and allow task management via the terminal.
 
-
-2 .[**    **](./)
-
+2. **[Password Generator](./password_generator)**  
+   A flexible password generator that allows users to choose the password length and include uppercase letters, digits, and symbols.
 
 3 . [** **](./)
 
