@@ -10,7 +10,7 @@ def generate_password(length=12, use_upper=True, use_digits=True, use_symbols=Tr
     if use_digits:
         characters += list(string.digits)
     if use_symbols:
-        characters += list("!@#$%^&*()_+-=[]{}|;:,.<>?")
+        characters += list("!@#$%^&*()_+-=[]{}|;:,.<>?\"'\\")
 
     if not characters:
         raise ValueError("Please select at least one character type.")
@@ -27,7 +27,7 @@ def password_strength(password):
         score += 1
     if any(c.isdigit() for c in password):
         score += 1
-    if any(c in "!@#$%^&*()_+-=[]{}|;:,.<>?" for c in password):
+    if any(c in "!@#$%^&*()_+-=[]{}|;:,.<>?\"'\\" for c in password):
         score += 1
 
     length = len(password)
