@@ -22,10 +22,22 @@ def generate_password(length=12, use_upper=True, use_digits=True, use_symbols=Tr
 # example of run
 if __name__ == "__main__":
     print("📌 Password Generator")
-    length = int(input("Enter desired password length: "))
-    use_upper = input("Include uppercase letters? (y/n): ").lower() == 'y'
-    use_digits = input("Include digits? (y/n): ").lower() == 'y'
-    use_symbols = input("Include symbols? (y/n): ").lower() == 'y'
+    while True:
+        try:
+            length = int(input('\nEnter desired password lenght:'))
+        except ValueError:
+            print('please enter a valid number')
+            continue
 
-    password = generate_password(length, use_upper, use_digits, use_symbols)
-    print("\n✅ Your generated password:", password)
+        use_upper = input("Include uppercase letters? (y/n): ").lower() == 'y'
+        use_digits = input("Include digits? (y/n): ").lower() == 'y'
+        use_symbols = input("Include symbols? (y/n): ").lower() == 'y'
+
+        password = generate_password(length, use_upper, use_digits, use_symbols)
+        print("\n✅ Your generated password:", password)
+
+        again = input('/nGenerate another password ? (y/n): ').lower()
+        if again != 'y' :
+            print("Goodbye")
+            break
+
