@@ -14,7 +14,8 @@ A collection of small Python projrcts to demonstrate basic programming skills, e
 2. **[Password Generator](./password_generator)**  
    A flexible password generator that allows users to choose the password length and include uppercase letters, digits, and symbols.
 
-3 . [** **](./)
+3. [Digital Bookshelf](./digital_bookshelf)  
+   A small Python project to demonstrate the use of magic methods (`__str__`, `__len__`, `__getitem__`, etc.) in object-oriented programming.
 
 ## About 
 This repository is part of my personal learning journey in Python. The projects range from biginner to intermediate and 
