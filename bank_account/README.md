@@ -11,6 +11,8 @@ This project is part of my object-oriented programming (OOP) practice using enca
 - Deposit and withdraw money
 - Print account details
 - Access current balance via a method
+- Transaction history (view list of deposits and withdrawals)
+
 - Demonstrates:
   - Private attributes (`__balance`)
   - Class methods
@@ -27,3 +29,5 @@ print(account)
 account.deposit(500)
 account.withdraw(200)
 print("Final balance:", account.get_balance())
+account.show_transactions()
+
