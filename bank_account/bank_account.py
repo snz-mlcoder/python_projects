@@ -1,9 +1,9 @@
 class BankAccount:
     def __init__(self, owner : str, balance : float =0) -> None:
-        self.owner = owner
-        self.__balance = balance  # Private variable
-        self.__transaction = [] # private transaction list 
-        self.__is_frozen = False #freez flag
+        self.owner :str = owner
+        self.__balance : float = balance  # Private variable
+        self.__transaction : list[str] = [] # private transaction list 
+        self.__is_frozen : bool = False #freez flag
 
     def deposit(self, amount : float ) -> None:
         if self.__is_frozen:
